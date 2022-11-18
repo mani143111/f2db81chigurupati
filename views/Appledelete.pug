@@ -2,6 +2,9 @@ extends layout
  
 block content 
   h1= title 
+ if(toShow==null)
+     h2 No instance to show 
+  else
     - let Appleid = toShow._id 
     - let Apple_colour  = toShow.Apple_colour
     - let Apple_price = toShow.Apple_price

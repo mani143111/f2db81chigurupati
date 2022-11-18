@@ -95,7 +95,7 @@ failed`);
 exports.Apple_view_all_Page = async function(req, res) {
     try{
         theAppless = await Apples.find();
-        res.render('Apples', { title: 'Apples Search Results', results: theAppless });
+        res.render('Apple', { title: 'Apple Search Results', results: theAppless });
     }
     catch(err){
         res.status(500);
@@ -115,12 +115,12 @@ exports.Apple_delete = async function(req, res) {
     } 
 }; 
 // Handle a show one view with id specified by query 
-exports.Apples_view_one_Page = async function(req, res) { 
+exports.Apple_view_one_Page = async function(req, res) { 
     console.log("single view for id "  + req.query.id) 
     try{ 
         result = await Apples.findById( req.query.id) 
-        res.render('Applesdetail',  
-{ title: 'Apples Detail', toShow: result }); 
+        res.render('Appledetail',  
+{ title: 'Apple Detail', toShow: result }); 
     } 
     catch(err){ 
         res.status(500) 
@@ -131,10 +131,10 @@ exports.Apples_view_one_Page = async function(req, res) {
 // Handle building the view for creating a Apples. 
 // No body, no in path parameter, no query. 
 // Does not need to be async 
-exports.Apples_create_Page =  function(req, res) { 
+exports.Apple_create_Page =  function(req, res) { 
     console.log("create view") 
     try{ 
-        res.render('Applescreate', { title: 'Apples Create'}); 
+        res.render('Applecreate', { title: 'Apple Create'}); 
     } 
     catch(err){ 
         res.status(500) 
@@ -148,7 +148,7 @@ exports.Apple_update_Page =  async function(req, res) {
     console.log("update view for item "+req.query.id) 
     try{ 
         let result = await Apples.findById(req.query.id) 
-        res.render('Applesupdate', { title: 'Apples Update', toShow: result }); 
+        res.render('Appleupdate', { title: 'Apple Update', toShow: result }); 
     } 
     catch(err){ 
         res.status(500) 
@@ -161,7 +161,7 @@ exports.Apple_delete_Page = async function(req, res) {
     console.log("Delete view for id "  + req.query.id) 
     try{ 
         result = await Apple.findById(req.query.id) 
-        res.render('Appledelete', { title: 'Apples Delete', toShow: 
+        res.render('Appledelete', { title: 'Apple Delete', toShow: 
 result }); 
     } 
     catch(err){ 
