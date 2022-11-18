@@ -20,10 +20,6 @@ router.get('/', api_controller.api);
 
 router.post('/Apples', Apple_controller.Apple_create_post);
 
-// DELETE request to delete Apple.
-
-router.delete('/Apples/:id', Apple_controller.Apple_delete);
-
 // PUT request to update Apple.
 
 router.put('/Apples/:id', Apple_controller.Apple_update_put);
@@ -36,4 +32,20 @@ router.get('/Apples/:id', Apple_controller.Apple_detail);
 
 router.get('/Apples', Apple_controller.Apple_list);
 
-module.exports = router;
+ /* GET detail costume page */ 
+ router.get('/detail', Apple_controller.Apple_view_one_Page); 
+ 
+ module.exports = router;
+ 
+ /* GET create Apples page */ 
+ router.get('/create', Apple_controller.Apple_create_Page); 
+ 
+ /* GET create update page */ 
+ router.get('/update', Apple_controller.Apple_update_Page); 
+  // DELETE request to delete Apple.
+
+router.delete('/Apples/:id', Apple_controller.Apple_delete);
+// DELETE request to delete Apple.
+
+router.delete('/Apples/:id', Apple_controller.Apple_delete);
+ 

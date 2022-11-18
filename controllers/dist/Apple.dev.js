@@ -209,40 +209,6 @@ exports.Apples_view_all_Page = function _callee6(req, res) {
       }
     }
   }, null, null, [[0, 7]]);
-}; // Handle a show one view with id specified by query
-
-
-exports.Apple_view_one_Page = function _callee7(req, res) {
-  return regeneratorRuntime.async(function _callee7$(_context7) {
-    while (1) {
-      switch (_context7.prev = _context7.next) {
-        case 0:
-          console.log("single view for id " + req.query.id);
-          _context7.prev = 1;
-          _context7.next = 4;
-          return regeneratorRuntime.awrap(Apple.findById(req.query.id));
-
-        case 4:
-          result = _context7.sent;
-          res.render('Appledetail', {
-            title: 'Apple Detail',
-            toShow: result
-          });
-          _context7.next = 12;
-          break;
-
-        case 8:
-          _context7.prev = 8;
-          _context7.t0 = _context7["catch"](1);
-          res.status(500);
-          res.send("{'error': '".concat(_context7.t0, "'}"));
-
-        case 12:
-        case "end":
-          return _context7.stop();
-      }
-    }
-  }, null, null, [[1, 8]]);
 }; // Handle building the view for creating a Apple.
 // No body, no in path parameter, no query.
 // Does not need to be async
@@ -263,23 +229,57 @@ exports.Apple_create_Page = function (req, res) {
 // query provides the id
 
 
-exports.Apple_update_Page = function _callee8(req, res) {
+exports.Apple_update_Page = function _callee7(req, res) {
   var _result3;
 
+  return regeneratorRuntime.async(function _callee7$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          console.log("update view for item " + req.query.id);
+          _context7.prev = 1;
+          _context7.next = 4;
+          return regeneratorRuntime.awrap(Apple.findById(req.query.id));
+
+        case 4:
+          _result3 = _context7.sent;
+          res.render('Appleupdate', {
+            title: 'Apple Update',
+            toShow: _result3
+          });
+          _context7.next = 12;
+          break;
+
+        case 8:
+          _context7.prev = 8;
+          _context7.t0 = _context7["catch"](1);
+          res.status(500);
+          res.send("{'error': '".concat(_context7.t0, "'}"));
+
+        case 12:
+        case "end":
+          return _context7.stop();
+      }
+    }
+  }, null, null, [[1, 8]]);
+}; // Handle a delete one view with id from query
+
+
+exports.Apple_delete_Page = function _callee8(req, res) {
   return regeneratorRuntime.async(function _callee8$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
-          console.log("update view for item " + req.query.id);
+          console.log("Delete view for id " + req.query.id);
           _context8.prev = 1;
           _context8.next = 4;
           return regeneratorRuntime.awrap(Apple.findById(req.query.id));
 
         case 4:
-          _result3 = _context8.sent;
-          res.render('Appleupdate', {
-            title: 'Apple Update',
-            toShow: _result3
+          result = _context8.sent;
+          res.render('Appledelete', {
+            title: 'Apple Delete',
+            toShow: result
           });
           _context8.next = 12;
           break;
@@ -296,23 +296,23 @@ exports.Apple_update_Page = function _callee8(req, res) {
       }
     }
   }, null, null, [[1, 8]]);
-}; // Handle a delete one view with id from query
+}; // Handle a show one view with id specified by query 
 
 
-exports.Apple_delete_Page = function _callee9(req, res) {
+exports.Apple_view_one_Page = function _callee9(req, res) {
   return regeneratorRuntime.async(function _callee9$(_context9) {
     while (1) {
       switch (_context9.prev = _context9.next) {
         case 0:
-          console.log("Delete view for id " + req.query.id);
+          console.log("single view for id " + req.query.id);
           _context9.prev = 1;
           _context9.next = 4;
           return regeneratorRuntime.awrap(Apple.findById(req.query.id));
 
         case 4:
           result = _context9.sent;
-          res.render('Appledelete', {
-            title: 'Apple Delete',
+          res.render('Appledetail', {
+            title: 'Apple Detail',
             toShow: result
           });
           _context9.next = 12;
@@ -327,127 +327,6 @@ exports.Apple_delete_Page = function _callee9(req, res) {
         case 12:
         case "end":
           return _context9.stop();
-      }
-    }
-  }, null, null, [[1, 8]]);
-}; // Handle a show one view with id specified by query 
-
-
-exports.Apple_view_one_Page = function _callee10(req, res) {
-  return regeneratorRuntime.async(function _callee10$(_context10) {
-    while (1) {
-      switch (_context10.prev = _context10.next) {
-        case 0:
-          console.log("single view for id " + req.query.id);
-          _context10.prev = 1;
-          _context10.next = 4;
-          return regeneratorRuntime.awrap(Apple.findById(req.query.id));
-
-        case 4:
-          result = _context10.sent;
-          res.render('Appledetail', {
-            title: 'Apple Detail',
-            toShow: result
-          });
-          _context10.next = 12;
-          break;
-
-        case 8:
-          _context10.prev = 8;
-          _context10.t0 = _context10["catch"](1);
-          res.status(500);
-          res.send("{'error': '".concat(_context10.t0, "'}"));
-
-        case 12:
-        case "end":
-          return _context10.stop();
-      }
-    }
-  }, null, null, [[1, 8]]);
-}; // Handle building the view for creating a Apples. 
-// No body, no in path parameter, no query. 
-// Does not need to be async 
-
-
-exports.Apple_create_Page = function (req, res) {
-  console.log("create view");
-
-  try {
-    res.render('Applecreate', {
-      title: 'Apple Create'
-    });
-  } catch (err) {
-    res.status(500);
-    res.send("{'error': '".concat(err, "'}"));
-  }
-}; // Handle building the view for updating a Apples. 
-// query provides the id 
-
-
-exports.Apple_update_Page = function _callee11(req, res) {
-  var _result4;
-
-  return regeneratorRuntime.async(function _callee11$(_context11) {
-    while (1) {
-      switch (_context11.prev = _context11.next) {
-        case 0:
-          console.log("update view for item " + req.query.id);
-          _context11.prev = 1;
-          _context11.next = 4;
-          return regeneratorRuntime.awrap(Apple.findById(req.query.id));
-
-        case 4:
-          _result4 = _context11.sent;
-          res.render('Appleupdate', {
-            title: 'Apple Update',
-            toShow: _result4
-          });
-          _context11.next = 12;
-          break;
-
-        case 8:
-          _context11.prev = 8;
-          _context11.t0 = _context11["catch"](1);
-          res.status(500);
-          res.send("{'error': '".concat(_context11.t0, "'}"));
-
-        case 12:
-        case "end":
-          return _context11.stop();
-      }
-    }
-  }, null, null, [[1, 8]]);
-}; // Handle a delete one view with id from query 
-
-
-exports.Apple_delete_Page = function _callee12(req, res) {
-  return regeneratorRuntime.async(function _callee12$(_context12) {
-    while (1) {
-      switch (_context12.prev = _context12.next) {
-        case 0:
-          console.log("Delete view for id " + req.query.id);
-          _context12.prev = 1;
-          _context12.next = 4;
-          return regeneratorRuntime.awrap(Apple.findById(req.query.id));
-
-        case 4:
-          result = _context12.sent;
-          res.render('Appledelete', {
-            title: 'Apple Delete',
-            toShow: result
-          });
-          _context12.next = 12;
-          break;
-
-        case 8:
-          _context12.prev = 8;
-          _context12.t0 = _context12["catch"](1);
-          res.status(500);
-          res.send("{'error': '".concat(_context12.t0, "'}"));
-
-        case 12:
-        case "end":
-          return _context12.stop();
       }
     }
   }, null, null, [[1, 8]]);

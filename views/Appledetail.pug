@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  if(toShow==null)
+     h2 No instance to show 
+  else
+  - let Appleid = toShow._id 
+  - let Apple_colour = toShow.Apple_colour 
+  - let Apple_price = toShow.Apple_price 
+  - let Apple_quantity = toShow.Apple_quantity 
+  div 
+    div.row 
+      div(class='AppleAttr mr-3') Apples ID is: 
+      div #{Appleid} 
+    div.row 
+      div(class='AppleAttr mr-3') Apples colour is: 
+      div #{Apple_colour} 
+    div.row 
+      div(class='AppleAttr mr-3') Apples price is: 
+      div #{Apple_price} 
+    div.row 
+      div(class='AppleAttr mr-3') Apples quantity  is: 
+      div #{Apple_quantity}
