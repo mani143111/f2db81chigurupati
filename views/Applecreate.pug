@@ -2,9 +2,6 @@ extends layout
  
 block content 
   h1= title 
- if(toShow==null)
-     h2 No instance to show 
-  else
   form(id='AppleForm', action="/resource/Apple", method="POST") 
     div.form-group 
         label.AppleAttr(for='Apple_colour') Apple colour 
