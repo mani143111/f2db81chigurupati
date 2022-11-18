@@ -2,9 +2,6 @@ extends layout
  
 block content 
   h1= title 
-   if(toShow==null)
-     h2 No instance to show 
-  else
   - let Appleid = toShow._id 
   - let Apple_colour  = toShow.Apple_colour
   - let Apple_quantity = toShow.Apple_quantity
@@ -19,11 +16,11 @@ block content
         label.AppleAttr(for='Apple_colour') Apple_colour
         input#Apple_colour(type='string', name='Apple_colour', value= Apple_colour ) 
     div.form-group 
-        label.AppleAttr(for='quantity') Apple_quantity
-        input#Apple_quantity(type='number', name='quantity', value= Apple_quantity ) 
+        label.AppleAttr(for='price') Apple_price
+        input#Apple_price(type='number', name='price', value= Apple_price ) 
     div.form-group 
-        label.AppleAttr(for='price') Apple_price 
-        input#Apple_price(type='number', name='price', value= Apple_price  ) 
+        label.AppleAttr(for='quantity') Apple_quantity 
+        input#Apple_quantity(type="number")(type='number', name='quantity', value= Apple_quantity   ) 
     input(type="submit") 
  
   script. 

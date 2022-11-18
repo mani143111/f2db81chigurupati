@@ -1,14 +1,16 @@
 extends layout
 
 block content
-  h1= title  
-  - let results=[{Apple_colour :"red",Apple_price:50,Apple_quantity:100},{Apple_colour :"green",Apple_price:120,Apple_quantity:200},{Apple_Colour:"purple",Apple_price:90 ,Apple_quantity:200}]
+  h1= title
+  - var results = results
   div(class="container-fluid")
-  div(class="row")
-   each value,index in results
-    div(class="col-sm-2" onclick=`buy(${index})`)  colour #{value.Apple_colour} , price #{value.Apple_price}, quantity #{value.Apple_quantity}
-   script.
-    function buy(index)
-    {
-      alert(`Your purchased Item ${index+1}`)
+    div(class="row m-1")
+      each item in results  
+        - let destination = `dispatch(\"/Apples/update?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.Apples_colour}(#{item.Apples_quantity}) is #{item.Apples_price}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+   
+  script.
+    function dispatch(path){
+      window.location.href=path
     }
